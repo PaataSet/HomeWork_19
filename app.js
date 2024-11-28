@@ -4,6 +4,13 @@ console.log("HomeWork_19");
 1. html ფაილში (ჯავასკრიპტით არა) შევქმნათ ღილაკი, ამ ღილაკის კლიკზე წაიშალოს თვითონ ეს ღილაკი.
 */
 
+function deLete() {
+  button.parentNode.removeChild(button);
+}
+
+const button = document.querySelector("button");
+const delbutton = document.querySelector(deletebutton);
+delbutton.addEventListener("click", deLete);
 /*
 2. ჯავასკრიპტით შევქმნათ img tag რომელსაც src ად მივანიჭებთ ამ:  https://picsum.photos/id/180/2000/1600  ლინკს და ეს შექმნილი img ჩავსვათ body ში (ჯავასკრიპტით).
 */
