@@ -1,28 +1,42 @@
+import { data } from "./data.js";
+
 console.log("HomeWork_19");
 
-const body = document.querySelector("body");
+const body1 = document.querySelector("body");
+const newSection1 = document.createElement("section");
 
-body.appendChild("<section></section>");
+// console.log(newSection1);
+
+body1.append(newSection1);
+
 /*
 1. html ფაილში (ჯავასკრიპტით არა) შევქმნათ ღილაკი, ამ ღილაკის კლიკზე წაიშალოს თვითონ ეს ღილაკი.
 */
 
-// function deLete() {
-//   button.parentNode.removeChild(button);
-// }
+const button = document.querySelector("button");
 
-// const button = document.querySelector("button");
-// const delbutton = document.querySelector(deletebutton);
-// delbutton.addEventListener("click", deLete);
+function delButton() {
+  body1.removeChild(button);
+}
+
+button.addEventListener("click", delButton);
+
 /*
 2. ჯავასკრიპტით შევქმნათ img tag რომელსაც src ად მივანიჭებთ ამ:  https://picsum.photos/id/180/2000/1600  ლინკს და ეს 
 შექმნილი img ჩავსვათ body ში (ჯავასკრიპტით).
 */
+
 const newImage = document.createElement("img");
+newImage.src = "https://picsum.photos/id/180/2000/1600";
+newSection1.appendChild(newImage);
 
 /*
 3. html-ში შექმენით <section id="products-list"></section>
 */
+
+const section2 = document.createElement("section");
+section2.id = "products-list";
+body1.appendChild(section2);
 
 /*
 4. 
@@ -35,6 +49,44 @@ const newImage = document.createElement("img");
     4.4 დიზაინში  product card ზე არის სურათი, პროდუქტის სახელი, აღწერა და ფასი (ასევე ღილაკები რომელიც ბოლო დავალებისთვის 
     გვჭირდება), თქვენ უნდა  ჩასვათ  title  , stripped_descr ,   price რომელიც არის მასივის ობიექტ ელემენტში.
 */
+
+const dataToUse = data;
+console.log(dataToUse);
+const logData = (el, index, arr) => {
+  console.log(el, index, arr);
+};
+
+const formatedArray = dataToUse.map((el, index, arr) => {
+  return {
+    title: el.title,
+    description: el.stripped_descr,
+    price: el.price,
+  };
+});
+
+// console.log(formatedArray);
+
+function renderHTML(data) {
+  const formatedData = data.map(
+    (el) =>
+      `<div class="card">
+        <h2>${el.title}</h2>
+        <img src=${el.photos[0].large}/>
+        <p>${el.stripped_descr}</p>
+        <div class="buttons">
+             <p>${el.price}</p>
+             <button>Show more</button>
+             <button>Delete</button>
+        </div>
+        
+    
+    </div>`
+  );
+  return formatedData.join(" ");
+}
+console.log(renderHTML(data));
+
+section2.innerHTML = renderHTML(data);
 
 /*
 5.  (optional) #4 დავალებაში შექმნილ product   card - ზე დავამატოთ ღილაკები (წაშლა და ინფო -  ჯავასკრიპტიდან, წინა დავალებაში 

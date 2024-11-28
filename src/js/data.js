@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     product_id: 29448810,
     user_id: 2143918,
