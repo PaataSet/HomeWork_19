@@ -5,7 +5,7 @@ console.log("HomeWork_19");
 const body1 = document.querySelector("body");
 const newSection1 = document.createElement("section");
 
-// console.log(newSection1);
+const card = document.querySelector(".card");
 
 body1.append(newSection1);
 
@@ -64,8 +64,6 @@ const formatedArray = dataToUse.map((el, index, arr) => {
   };
 });
 
-// console.log(formatedArray);
-
 function renderHTML(data) {
   const formatedData = data.map(
     (el) =>
@@ -73,18 +71,19 @@ function renderHTML(data) {
         <h2>${el.title}</h2>
         <img src=${el.photos[0].large}/>
         <p>${el.stripped_descr}</p>
-        <div class="buttons">
-             <p>${el.price}</p>
-             <button>Show more</button>
-             <button>Delete</button>
-        </div>
+        <div class="price-line">
+              <p>${el.price}</p>
+         <div class="buttons">
+              <button class="button1">Show more</button>
+             <button class="button2">Delete</button>
+          </div>
+         </div> 
         
     
     </div>`
   );
   return formatedData.join(" ");
 }
-console.log(renderHTML(data));
 
 section2.innerHTML = renderHTML(data);
 
@@ -92,6 +91,37 @@ section2.innerHTML = renderHTML(data);
 5.  (optional) #4 დავალებაში შექმნილ product   card - ზე დავამატოთ ღილაკები (წაშლა და ინფო -  ჯავასკრიპტიდან, წინა დავალებაში 
 შექმნილ სტრინგთან ერთად, ფოტოზე როგორცაა), წაშლა ღილაკზე დაჭერით წავშალოთ შესაბამისი  product card-ი, ინფო ღილაკზე 
 დაჭერის შედეგად ღილაკების ქვემოთ გამოვაჩინოთ პროდუქტის კატეგორიები (category_tree ელემენტის title მნიშვნელობები)
+*/
+
+const button2 = document.querySelector(".button2");
+const section22 = document.querySelector(".products-list");
+const cardX = document.querySelector(".card");
+
+function delButton2() {
+  section22.removeChild(cardX);
+}
+
+/*
+ინტერნეტში ნაპოვნი ვარიანტია მარა არც ეს მუშაობს :(
+
+function myFunction() {
+  const element = document.getElementById("demo");
+  element.remove();
+}
+*/
+
+button2.addEventListener("click", delButton2);
+
+/*
+<p id="demo">Click "Remove", and this paragraph will be removed from the DOM.</p>
+<button onclick="myFunction()">Remove</button>
+
+<script>
+function myFunction() {
+  const element = document.getElementById("demo");
+  element.remove();
+}
+</script>
 */
 
 /*

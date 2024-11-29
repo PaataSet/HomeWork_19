@@ -55,12 +55,34 @@ section > img {
   border-radius: 20px;
 }
 
-.buttons > button {
+.button1 {
   width: 150px;
   height: 30px;
   border-radius: 10px;
   font-size: 15px;
 }
+
+.button2 {
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+/* #demo {
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 15px;
+} */
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
